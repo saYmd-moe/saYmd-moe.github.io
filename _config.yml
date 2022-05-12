@@ -103,5 +103,5 @@ theme: landscape
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
   type: git
-  repo: https://github.com/saYmd-moe/saYmd-moe.github.io
+  repo: git@github.com:saYmd-moe/saYmd-moe.github.io
   branch: gh-pages
