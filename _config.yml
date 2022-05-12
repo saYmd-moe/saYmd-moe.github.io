@@ -104,4 +104,4 @@ theme: landscape
 deploy:
   type: git
   repo: https://github.com/saYmd-moe/saYmd-moe.github.io
-  branch: main
+  branch: gh-pages
