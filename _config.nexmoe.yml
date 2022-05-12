@@ -1,6 +1,6 @@
-avatar: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/avatar.png # 网站 Logo
+avatar: https://cdn.jsdelivr.net/gh/saYmd-moe/ImgHosting/头像/main.jpg # 网站 Logo
 background: # 既是博客的背景，又是文章默认头图
-  path: https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg
+  path: https://cdn.jsdelivr.net/gh/saYmd-moe/ImgHosting/bg/%E7%A7%98%E5%AF%86%E3%81%AE%E9%81%8B%E5%91%BD%E8%AB%96.png
   width: 1440
   height: 960
 favicon:
