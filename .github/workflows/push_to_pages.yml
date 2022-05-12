@@ -1,11 +1,11 @@
 # workflow name
-name: Hexo Blog CI
+name: push-to pages
 
 # master branch on push, auto run
 on: 
   push:
     branches:
-      - gh-pages
+      - main
       
 jobs:
   build: 
@@ -16,17 +16,7 @@ jobs:
     # from: https://github.com/actions/checkout
     - name: Checkout Repository master branch
       uses: actions/checkout@master 
-      
-    # from: https://github.com/actions/setup-node  
-    - name: Setup Node.js 18.x 
-      uses: actions/setup-node@master
-      with:
-        node-version: "18.x"
     
-    - name: Setup Hexo Dependencies
-      run: |
-        npm install hexo-cli -g
-        npm install        
     
     - name: Setup Deploy Private Key
       env:
@@ -41,8 +31,6 @@ jobs:
       run: | 
         git config --global user.name saYmd-moe 
         git config --global user.email liuymyz@foxmail.com
-    - name: Deploy Hexo 
+    - name: push
       run: |
-        hexo clean
-        hexo generate 
-        hexo deploy        
+        git remote add origin git@github.com:saYmd-moe/saYmd-moe.github.io
