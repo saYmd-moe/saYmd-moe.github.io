@@ -67,7 +67,7 @@ code:
       # 在下方链接页面右侧的圆形按钮挑选 style 填入，也可以直接填入 css 链接
       # Select the style button on the right side of the link page, you can also set the CSS link
       # See: https://prismjs.com/
-      style: "default"
+      style: "coy"
 
       # 设为 true 高亮将本地静态生成（并只支持部分 prismjs 插件），设为 false 高亮将在浏览器通过 js 生成
       # If true, it will be generated locally (but some prismjs plugins are not supported). If false, it will be generated via JS in the browser
@@ -102,14 +102,14 @@ fun_features:
     # Options: hover | always | touch
     visible: hover
     # Option：§ | # | ❡
-    icon: "❡"
+    icon: "#"
 
   # 加载进度条
   # Progress bar when loading
   progressbar:
     enable: true
     height_px: 3
-    color: "#29d"
+    color: "#8a7460"
     # See: https://github.com/rstacruz/nprogress
     options: { showSpinner: false, trickleSpeed: 100 }
 
@@ -135,8 +135,8 @@ color:
 
   # 顶部菜单背景色
   # Color of navigation bar background
-  navbar_bg_color: "#2f4154"
-  navbar_bg_color_dark: "#1f3144"
+  navbar_bg_color: "#a5957c"
+  navbar_bg_color_dark: "#553b40"
 
   # 顶部菜单字体色
   # Color of navigation bar text
@@ -322,7 +322,7 @@ navbar:
     - { key: "category", link: "/categories/", icon: "iconfont icon-category-fill" }
     - { key: "tag", link: "/tags/", icon: "iconfont icon-tags-fill" }
     - { key: "about", link: "/about/", icon: "iconfont icon-user-fill" }
-    #- { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
+    - { key: "links", link: "/links/", icon: "iconfont icon-link-fill" }
 
 # 搜索功能，基于 hexo-generator-search 插件，若已安装其他搜索插件请关闭此功能，以避免生成多余的索引文件
 # Search feature, based on hexo-generator-search. If you have installed other search plugins, please disable this feature to avoid generating redundant index files
@@ -396,6 +396,7 @@ footer:
   # 页脚第一行文字的 HTML，建议保留 Fluid 的链接，用于向更多人推广本主题
   # HTML of the first line of the footer, it is recommended to keep the Fluid link to promote this theme to more people
   content: '
+    <span>Powered by</span>
     <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a>
     <i class="iconfont icon-love"></i>
     <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
@@ -404,7 +405,7 @@ footer:
   # 展示网站的 PV、UV 统计数
   # Display website PV and UV statistics
   statistics:
-    enable: false
+    enable: true
 
     # 统计数据来源，使用 leancloud 需要设置 `web_analytics: leancloud` 中的参数；使用 busuanzi 不需要额外设置，但是有时不稳定，另外本地运行时 busuanzi 显示统计数据很大属于正常现象，部署后会正常
     # Data source. If use leancloud, you need to set the parameter in `web_analytics: leancloud`
@@ -456,7 +457,7 @@ index:
 
     # 为空则按 hexo config.subtitle 显示
     # If empty, text based on `subtitle` in hexo config
-    text: "Welcome to saYmd's blogヾ(•ω•`)o "
+    text: "Welcome to saYmd's blogヾ(•ω•`)"
 
     # 通过 API 接口作为首页副标题的内容，必须返回的是 JSON 格式，如果请求失败则按 text 字段显示，该功能必须先开启 typing 打字机功能
     # Subtitle of the homepage through the API, must be returned a JSON. If the request fails, it will be displayed in `text` value. This feature must first enable the typing animation
@@ -515,7 +516,7 @@ post:
 
   # 文章在首页的默认封面图，当没有指定 index_img 时会使用该图片，若两者都为空则不显示任何图片
   # Path of the default post cover when `index_img` is not set. If both are empty, no image will be displayed
-  default_index_img:
+  default_index_img: /img/bg/03.jpg
 
   # 文章标题下方的元信息
   # Meta information below title
@@ -557,7 +558,7 @@ post:
     # 浏览量计数
     # Number of visits
     views:
-      enable: false
+      enable: true
       # 统计数据来源
       # Data Source
       # Options: busuanzi | leancloud
@@ -567,15 +568,15 @@ post:
   # 在文章开头显示文章更新时间，该时间默认是 md 文件更新时间，可通过 front-matter 中 `updated` 手动指定（和 date 一样格式）
   # Update date is displayed at the beginning of the post. The default date is the update date of the md file, which can be manually specified by `updated` in front-matter (same format as date)
   updated:
-    enable: false
+    enable: true
 
     # 描述文字
     # Descriptive text before date
-    content: 本文最后更新于：
+    content: 作者上次停止摸鱼于：
 
     # 是否使用相对时间表示，比如："3 天前"
     # If true, it will be a relative time, such as: "3 days ago"
-    relative: false
+    relative: true
 
   # 文章右侧目录
   # Table of contents (TOC)
@@ -611,7 +612,7 @@ post:
     enable: true
     # 放大后图片链接替换规则，可用于将压缩图片链接替换为原图片链接，如 ['-slim', ''] 是将链接中 `-slim` 移除；如果想使用正则请使用 `re:` 前缀，如 ['re:\\d{3,4}\\/\\d{3,4}\\/', '']
     # The image url replacement when zooming, the feature can be used to replace the compressed image to the original image, eg: ['-slim', ''] removes `-slim` from the image url when zooming; if you want to use regular, use prefix `re:`, eg: ['re:\\d{3,4}\\/\\d{3,4}\\/','']
-    img_url_replace: ['', '']
+    img_url_replace: ['-slim', '']
 
   # 脚注语法，会在文章底部生成脚注，如果 Markdown 渲染器本身支持，则建议关闭，否则可能会冲突
   # Support footnote syntax, footnotes will be generated at the bottom of the post page. If the Markdown renderer itself supports it, please disable it, otherwise it may conflict
@@ -652,11 +653,11 @@ post:
   # 评论插件
   # Comment plugin
   comments:
-    enable: false
+    enable: true
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
-    type: Valine
+    type: valine
 
 
 #---------------------------
@@ -721,18 +722,19 @@ valine:
   appId: FntMYXBDBx2O2o9EbKqonQTi-gzGzoHsz
   appKey: efhvvjP0I7vosmdmV2JsjR9f
   path: window.location.pathname
-  placeholder:
+  placeholder: '来进行友好的交♂流吧(^^'
   avatar: 'retro'
   meta: ['nick', 'mail', 'link']
-  requiredFields: []
+  requiredFields: ['nick']
   pageSize: 10
   lang: 'zh-CN'
-  highlight: false
-  recordIP: false
+  highlight: true
+  recordIP: true
   serverURLs: https://fntmyxbd.lc-cn-n1-shared.com
   emojiCDN:
   emojiMaps:
   enableQQ: true
+  visitor: ture
 
 # Waline
 # 从 Valine 衍生而来，额外增加了服务端和多种功能
@@ -863,9 +865,9 @@ tag:
 #---------------------------
 about:
   enable: true
-  banner_img: /img/bg/01.jpg
-  banner_img_height: 60
-  banner_mask_alpha: 0.3
+  banner_img: /img/bg/02.jpg
+  banner_img_height: 85
+  banner_mask_alpha: 0.4
   subtitle:
   avatar: /img/logo/01.jpg
   name: "saYmd"
@@ -934,6 +936,12 @@ links:
       link: "https://github.com/fluid-dev/hexo-theme-fluid",
       avatar: "/img/favicon.png"
     }
+    - {
+      title: "Hexo",
+      intro: "Hexo 官方网站",
+      link: "https://hexo.io/zh-cn/",
+      avatar: "/img/logo/hexo.png"
+    }
 
   # 当成员头像加载失败时，替换为指定图片
   # When the member avatar fails to load, replace the specified image
@@ -952,7 +960,7 @@ links:
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo | cusdis
-    type: disqus
+    type: valine
 
 
 #---------------------------
