@@ -22,7 +22,7 @@ categories:
 这里以 LAMP 作为示范，它更适合新手快速上手  
 如果你的系统上没有安装 LAMP，可以参考这篇文章进行安装 [Ubuntu 22.04 LTS 安装 LAMP](https://saymd-moe.github.io/2022/05/Ubuntu-20-04-%E5%AE%89%E8%A3%85-LAMP/)
 
-### 需要的 PHP 扩展
+### (1) 需要的 PHP 扩展
 请确保已安装并启用一下扩展
 - OpenSSL
 - PDO
@@ -41,7 +41,7 @@ categories:
 sudo apt-get install php-xxx
 ```
 
-### 准备安装文件
+### (2) 准备安装文件
 
 从该项目的 release 中下载最新版安装包：[GitHub Releases](https://github.com/bs-community/blessing-skin-server/releases)
 
@@ -59,4 +59,36 @@ php artisan key:generate
 
 这一步是最关键也是坑最多的一步（
 
-### 启用 Apache2 Rewrite 支持
+### (1) 启用 Apache2 Rewrite 支持
+
+执行加载 Rewrite 模块并重启 apache2
+```bash
+a2enmod rewrite
+sudo systemctl restart apache2
+```
+
+### (2) 修改 URL 重写
+
+使用任意你喜欢的编辑器修改配置
+
+```bash
+sudo nano /etc/apache2/sites-available/000-default.conf
+```
+
+这里假设你和我一样，将 blessing-skin-server 的压缩包解压到了 ```~/bs``` 位置，假设用户名为 ```username```
+```conf
+# 在 <VirtualHost *:80>...</VirtualHost> 中添加以下内容
+<Directory /home/username/bs/public/>
+    Options Indexes FollowSymLimks
+    AllowOverride All
+    Require all granted
+    DirectoryIndex index.php
+</Directory>
+```
+
+然后重启 apache2
+```bash
+sudo systemctl restart apache2
+```
+
+## 
