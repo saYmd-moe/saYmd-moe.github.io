@@ -98,6 +98,9 @@ ignore:
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
 theme: fluid
+# hexo 中英文之间自动加空格
+auto_spacing:
+  enable: true
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
