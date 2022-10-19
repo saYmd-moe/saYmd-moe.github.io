@@ -5,10 +5,7 @@ tags:
   - Manjaro
   - AUR
 categories:
-  - - IT
-    - Linux
-    - Manjaro
-    - AUR
+    - [IT, Linux, Manjaro, AUR]
 index_img: /img/in_post/banner0.png
 banner_img: /img/in_post/banner0.png
 date: 2022-10-15 01:05:48
