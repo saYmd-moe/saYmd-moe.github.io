@@ -4,8 +4,7 @@ tags:
   - pwsh
   - script
 categories:
-  - - script
-    - pwsh
+  - [script, pwsh]
 index_img: /img/in_post/banner1.png
 banner_img: /img/in_post/banner1.png
 date: 2022-10-19 15:39:08
