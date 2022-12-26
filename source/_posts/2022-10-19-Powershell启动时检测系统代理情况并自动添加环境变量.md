@@ -48,12 +48,10 @@ if ($internet_setting.ProxyEnable -eq 1) {
     Write-Output "Proxy Enabled"
 }
 else{
-    Remove-Item Env:\HTTP_PROXY
-    Remove-Item Env:\HTTPS_PROXY
     Write-Output "Proxy Disabled"
 }
 
-Remove-Variabl -Name internet_setting
+Remove-Variable -Name internet_setting
 ```
 
 这里还遇到过一个问题，如果你是使用VisualStudioCode编辑`$PROFILE`文件，并且在`Write-Output`或`echo`指令后写入了中文，那运行时可能会报错，这是因为VSC使用的是UTF-8编码，而Powershell在中文状态下默认使用的是GBK编码，所以会出现乱码，解决方法是在VSC中将文件编码改为GBK即可。
