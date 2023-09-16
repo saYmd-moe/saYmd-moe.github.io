@@ -917,6 +917,12 @@ links:
   # 友链的成员项
   # Member item of page
   items:
+  - {
+      title: "annesede的博客",
+      intro: "annesede's blog",
+      link: "https://annesede.github.io/",
+      avatar: "https://annesede.github.io/img/avatar_hu753714c8df5506bae6b3b709f3103a1b_67963_300x0_resize_box_3.png"
+    }
     - {
       title: "Fluid Blog",
       intro: "主题博客",
