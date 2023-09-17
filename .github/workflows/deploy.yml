@@ -12,6 +12,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: webfactory/ssh-agent
+        uses: webfactory/ssh-agent@v0.8.0
+
       # check it to your workflow can access it
       # from: https://github.com/actions/checkout
       - name: Checkout Repository master branch
