@@ -917,7 +917,7 @@ links:
   # 友链的成员项
   # Member item of page
   items:
-  - {
+    - {
       title: "annesede的博客",
       intro: "annesede's blog",
       link: "https://annesede.github.io/",
