@@ -20,6 +20,7 @@
     "hexo-generator-index": "latest",
     "hexo-generator-tag": "latest",
     "hexo-math": "latest",
+    "hexo-pdf": "^1.1.1",
     "hexo-renderer-ejs": "latest",
     "hexo-renderer-marked": "latest",
     "hexo-renderer-stylus": "latest",
