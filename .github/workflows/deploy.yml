@@ -14,6 +14,8 @@ jobs:
     steps:
       - name: webfactory/ssh-agent
         uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.DEPLOY_KEY }}
 
       # check it to your workflow can access it
       # from: https://github.com/actions/checkout
