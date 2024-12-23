@@ -1,0 +1,793 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" href="/img/favicon.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+  
+  <meta name="theme-color" content="#a7b8c8">
+  <meta name="author" content="saYmd">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="在本文中，你将看到：西北工业大学电子实习单片机程序设计课程的流水灯和电子表实验参考代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="西北工业大学电子实习单片机程序设计-流水灯&amp;电子表">
+<meta property="og:url" content="https://saymd-moe.github.io/2023/04/%E8%A5%BF%E5%8C%97%E5%B7%A5%E4%B8%9A%E5%A4%A7%E5%AD%A6%E7%94%B5%E5%AD%90%E5%AE%9E%E4%B9%A0%E5%8D%95%E7%89%87%E6%9C%BA%E7%A8%8B%E5%BA%8F%E8%AE%BE%E8%AE%A1/index.html">
+<meta property="og:site_name" content="saYmd&#39;s blog">
+<meta property="og:description" content="在本文中，你将看到：西北工业大学电子实习单片机程序设计课程的流水灯和电子表实验参考代码">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://saymd-moe.github.io/img/in_post/banner2.jpg">
+<meta property="article:published_time" content="2023-04-25T01:48:00.000Z">
+<meta property="article:modified_time" content="2023-04-25T01:48:00.000Z">
+<meta property="article:author" content="saYmd">
+<meta property="article:tag" content="单片机">
+<meta property="article:tag" content="51单片机">
+<meta property="article:tag" content="电子实习">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://saymd-moe.github.io/img/in_post/banner2.jpg">
+  
+  
+  
+  <title>西北工业大学电子实习单片机程序设计-流水灯&amp;电子表 - saYmd&#39;s blog</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hint.css@2/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"saymd-moe.github.io","root":"/","version":"1.9.8","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":"#"},"progressbar":{"enable":true,"height_px":3,"color":"#8a7460","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["-slim",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":"G-T2HTDYSKVQ","tencent":{"sid":null,"cid":null},"leancloud":{"app_id":"FntMYXBDBx2O2o9EbKqonQTi-gzGzoHsz","app_key":"efhvvjP0I7vosmdmV2JsjR9f","server_url":"https://fntmyxbd.lc-cn-n1-shared.com","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"gtag":null,"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+  
+<!-- hexo injector head_end start -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.12.0/dist/katex.min.css">
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/hexo-math@4.0.0/dist/style.css">
+<!-- hexo injector head_end end --><meta name="generator" content="Hexo 7.0.0-rc2"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>saYmd-moe</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>首页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/" target="_self">
+                <i class="iconfont icon-tags-fill"></i>
+                <span>标签</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/links/" target="_self">
+                <i class="iconfont icon-link-fill"></i>
+                <span>友链</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/in_post/banner2.jpg') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="西北工业大学电子实习单片机程序设计-流水灯&amp;电子表"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2023-04-25 09:48" pubdate>
+          2023年4月25日 上午
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          <!-- compatible with older versions-->
+          2.6k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          <!-- compatible with older versions-->
+          22 分钟
+        
+      </span>
+    
+
+    
+    
+      
+        <span id="leancloud-page-views-container" class="post-meta" style="display: none">
+          <i class="iconfont icon-eye" aria-hidden="true"></i>
+          <span id="leancloud-page-views"></span> 次
+        </span>
+        
+      
+      
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">西北工业大学电子实习单片机程序设计-流水灯&amp;电子表</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <p>在本文中，你将看到：<br>西北工业大学电子实习单片机程序设计课程的流水灯和电子表实验参考代码</p>
+<span id="more"></span>
+
+<p>电子实习是一门32总学时的实习课程，其中包含了焊接、电子测量、单片机程序设计和物联网等内容，单片机程序设计作为一个8学时的部分，其中前四个课时是流水灯实验，后四个课时是电子表&#x2F;交通灯实验，我没有完成交通灯的代码，而是做了电子表的闹钟功能，这里将会提供我的参考代码<sup id="fnref:1" class="footnote-ref"><a href="#fn:1" rel="footnote"><span class="hint--top hint--rounded" aria-label="代码仅供参考，不保证正确性，如有错误请指出，同时我没有添加注释，请耐心阅读代码学习。">[1]</span></a></sup>。</p>
+<h1 id="流水灯"><a href="#流水灯" class="headerlink" title="流水灯"></a>流水灯</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;stc8a.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;intrins.h&gt;</span></span><br><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> uchar unsigned char</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> uint unsigned int</span><br><br>sbit k1 = P3 ^ <span class="hljs-number">2</span>;<br>sbit k2 = P3 ^ <span class="hljs-number">3</span>;<br>sbit k3 = P3 ^ <span class="hljs-number">4</span>;<br>sbit k4 = P3 ^ <span class="hljs-number">5</span>;<br>sbit k5 = P4 ^ <span class="hljs-number">0</span>;<br>sbit LED = P4 ^ <span class="hljs-number">1</span>;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">delay_us</span><span class="hljs-params">(uint us)</span><br>&#123;<br>    uint a;<br>    uchar b;<br>    <span class="hljs-keyword">for</span> (b = <span class="hljs-number">0</span>; b &lt; <span class="hljs-number">2</span>; b++)<br>        <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; us; a++)<br>            ;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">start_1</span><span class="hljs-params">()</span><br>&#123;<br>    uchar a, b;<br>    b = <span class="hljs-number">0x7f</span>;<br><br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">7</span>; a++)<br>    &#123;<br><br>        P0 = b;<br>        delay_us(<span class="hljs-number">50000</span>);<br>        b = _cror_(b, <span class="hljs-number">1</span>);<br>    &#125;<br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">7</span>; a++)<br>    &#123;<br>        P0 = b;<br>        delay_us(<span class="hljs-number">50000</span>);<br>        b = _crol_(b, <span class="hljs-number">1</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">start_2</span><span class="hljs-params">()</span><br>&#123;<br>    uchar a, b;<br>    b = <span class="hljs-number">0x7f</span>;<br><br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">7</span>; a++)<br>    &#123;<br>        P0 = <span class="hljs-number">0xe7</span> &amp; b;<br>        delay_us(<span class="hljs-number">50000</span>);<br>        b = _cror_(b, <span class="hljs-number">1</span>);<br>    &#125;<br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">7</span>; a++)<br>    &#123;<br>        P0 = <span class="hljs-number">0xe7</span> &amp; b;<br>        delay_us(<span class="hljs-number">50000</span>);<br>        b = _crol_(b, <span class="hljs-number">1</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">start_3</span><span class="hljs-params">()</span><br>&#123;<br>    uchar a, b, c;<br>    b = <span class="hljs-number">0xfe</span>;<br>    c = <span class="hljs-number">0x7f</span>;<br><br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">7</span>; a++)<br>    &#123;<br>        P0 = b &amp; c;<br>        delay_us(<span class="hljs-number">50000</span>);<br>        b = _crol_(b, <span class="hljs-number">1</span>);<br>        c = _cror_(c, <span class="hljs-number">1</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">start_4</span><span class="hljs-params">()</span><br>&#123;<br>    uchar a, b;<br>    b = <span class="hljs-number">0x7f</span>;<br><br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">9</span>; a++)<br>    &#123;<br>        P0 = b;<br>        delay_us(<span class="hljs-number">50000</span>);<br>        b = _cror_(b, <span class="hljs-number">1</span>) &amp; b;<br>    &#125;<br>    b = <span class="hljs-number">0x01</span>;<br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">8</span>; a++)<br>    &#123;<br>        P0 = b;<br>        delay_us(<span class="hljs-number">50000</span>);<br>        b = _crol_(b, <span class="hljs-number">1</span>) | b;<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">start_5</span><span class="hljs-params">()</span><br>&#123;<br>    uchar a, b, c, d;<br>    b = <span class="hljs-number">0x7f</span>;<br>    c = <span class="hljs-number">0xff</span>;<br><br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">9</span>; a++)<br>    &#123;<br>        <span class="hljs-keyword">for</span> (d = <span class="hljs-number">0</span>; d &lt; <span class="hljs-number">7</span>; d++)<br>        &#123;<br>            P0 = b &amp; c;<br>            delay_us(<span class="hljs-number">50000</span>);<br>            b = _cror_(b, <span class="hljs-number">1</span>);<br>        &#125;<br>        c = c &lt;&lt; <span class="hljs-number">1</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">start_6</span><span class="hljs-params">()</span><br>&#123;<br>    uchar a, b, c, i;<br>    c = <span class="hljs-number">0x7f</span>;<br><br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; <span class="hljs-number">8</span>; a++)<br>    &#123;<br>        b = <span class="hljs-number">0x7f</span>;<br>        P0 = c;<br>        <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; a; i++)<br>        &#123;<br>            P0 = b &amp; c;<br>            delay_us(<span class="hljs-number">50000</span>);<br>            b = _cror_(b, <span class="hljs-number">1</span>);<br>        &#125;<br>        delay_us(<span class="hljs-number">50000</span>);<br>        c = _cror_(c, <span class="hljs-number">1</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">start_7</span><span class="hljs-params">()</span><br>&#123;<br>    uint a, b = <span class="hljs-number">1000</span>;<br><br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">1</span>; a &lt; <span class="hljs-number">1000</span>; a++)<br>    &#123;<br>        P0 = <span class="hljs-number">0xff</span>;<br>        delay_us(b--);<br>        P0 = <span class="hljs-number">0x00</span>;<br>        delay_us(a);<br>    &#125;<br>    b = <span class="hljs-number">1000</span>;<br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">1</span>; a &lt; <span class="hljs-number">1000</span>; a++)<br>    &#123;<br>        P0 = <span class="hljs-number">0x00</span>;<br>        delay_us(b--);<br>        P0 = <span class="hljs-number">0xff</span>;<br>        delay_us(a);<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">start_8</span><span class="hljs-params">()</span><br>&#123;<br>    uchar a, b, c, d, e, f, i;<br>    c = <span class="hljs-number">0x7f</span>;<br>    d = <span class="hljs-number">0x7f</span>;<br><br>    e = <span class="hljs-number">0xfe</span>;<br>    f = <span class="hljs-number">0xfe</span>;<br><br>    <span class="hljs-keyword">for</span> (a = <span class="hljs-number">1</span>; a &lt; <span class="hljs-number">5</span>; a++)<br>    &#123;<br>        P0 = c &amp; e;<br><br>        b = d;<br>        <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; (<span class="hljs-number">8</span> - a); i++)<br>        &#123;<br>            P0 = b &amp; c &amp; e;<br>            delay_us(<span class="hljs-number">50000</span>);<br>            b = _cror_(b, <span class="hljs-number">1</span>);<br>        &#125;<br><br>        e = e &lt;&lt; <span class="hljs-number">1</span>;<br>        f = _crol_(f, <span class="hljs-number">1</span>);<br>        P0 = c &amp; e;<br><br>        b = f;<br>        <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; (<span class="hljs-number">7</span> - a); i++)<br>        &#123;<br>            P0 = b &amp; c &amp; e;<br>            delay_us(<span class="hljs-number">50000</span>);<br>            b = _crol_(b, <span class="hljs-number">1</span>);<br>        &#125;<br><br>        c = c &gt;&gt; <span class="hljs-number">1</span>;<br>        d = _cror_(d, <span class="hljs-number">1</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>    LED = <span class="hljs-number">0</span>;<br>    <span class="hljs-keyword">if</span> (!k1)<br>    &#123;<br>        <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)<br>        &#123;<br>            <span class="hljs-comment">// start_1();</span><br>            <span class="hljs-comment">// start_2();</span><br>            start_3();<br>            start_4();<br>            start_5();<br>            start_6();<br>            start_7();<br>            start_8();<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (!k2)<br>    &#123;<br>        <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)<br>        &#123;<br>            start_8();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h1 id="电子表"><a href="#电子表" class="headerlink" title="电子表"></a>电子表</h1><figure class="highlight c"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br><span class="line">219</span><br><span class="line">220</span><br><span class="line">221</span><br><span class="line">222</span><br><span class="line">223</span><br><span class="line">224</span><br><span class="line">225</span><br><span class="line">226</span><br><span class="line">227</span><br><span class="line">228</span><br><span class="line">229</span><br><span class="line">230</span><br><span class="line">231</span><br><span class="line">232</span><br><span class="line">233</span><br><span class="line">234</span><br><span class="line">235</span><br><span class="line">236</span><br><span class="line">237</span><br><span class="line">238</span><br><span class="line">239</span><br><span class="line">240</span><br><span class="line">241</span><br><span class="line">242</span><br><span class="line">243</span><br><span class="line">244</span><br><span class="line">245</span><br><span class="line">246</span><br><span class="line">247</span><br><span class="line">248</span><br><span class="line">249</span><br><span class="line">250</span><br><span class="line">251</span><br><span class="line">252</span><br><span class="line">253</span><br><span class="line">254</span><br><span class="line">255</span><br><span class="line">256</span><br><span class="line">257</span><br><span class="line">258</span><br><span class="line">259</span><br><span class="line">260</span><br><span class="line">261</span><br><span class="line">262</span><br><span class="line">263</span><br><span class="line">264</span><br><span class="line">265</span><br><span class="line">266</span><br><span class="line">267</span><br><span class="line">268</span><br><span class="line">269</span><br><span class="line">270</span><br><span class="line">271</span><br><span class="line">272</span><br><span class="line">273</span><br><span class="line">274</span><br><span class="line">275</span><br><span class="line">276</span><br><span class="line">277</span><br><span class="line">278</span><br><span class="line">279</span><br><span class="line">280</span><br><span class="line">281</span><br><span class="line">282</span><br><span class="line">283</span><br><span class="line">284</span><br><span class="line">285</span><br><span class="line">286</span><br><span class="line">287</span><br><span class="line">288</span><br><span class="line">289</span><br><span class="line">290</span><br><span class="line">291</span><br><span class="line">292</span><br><span class="line">293</span><br><span class="line">294</span><br><span class="line">295</span><br><span class="line">296</span><br><span class="line">297</span><br><span class="line">298</span><br><span class="line">299</span><br><span class="line">300</span><br><span class="line">301</span><br><span class="line">302</span><br><span class="line">303</span><br><span class="line">304</span><br><span class="line">305</span><br><span class="line">306</span><br><span class="line">307</span><br><span class="line">308</span><br><span class="line">309</span><br><span class="line">310</span><br><span class="line">311</span><br><span class="line">312</span><br><span class="line">313</span><br><span class="line">314</span><br><span class="line">315</span><br><span class="line">316</span><br><span class="line">317</span><br><span class="line">318</span><br><span class="line">319</span><br><span class="line">320</span><br><span class="line">321</span><br><span class="line">322</span><br><span class="line">323</span><br><span class="line">324</span><br><span class="line">325</span><br><span class="line">326</span><br><span class="line">327</span><br><span class="line">328</span><br><span class="line">329</span><br><span class="line">330</span><br><span class="line">331</span><br><span class="line">332</span><br><span class="line">333</span><br><span class="line">334</span><br><span class="line">335</span><br><span class="line">336</span><br><span class="line">337</span><br><span class="line">338</span><br><span class="line">339</span><br><span class="line">340</span><br><span class="line">341</span><br><span class="line">342</span><br><span class="line">343</span><br><span class="line">344</span><br><span class="line">345</span><br><span class="line">346</span><br><span class="line">347</span><br><span class="line">348</span><br><span class="line">349</span><br><span class="line">350</span><br><span class="line">351</span><br><span class="line">352</span><br><span class="line">353</span><br><span class="line">354</span><br><span class="line">355</span><br><span class="line">356</span><br><span class="line">357</span><br><span class="line">358</span><br><span class="line">359</span><br><span class="line">360</span><br><span class="line">361</span><br><span class="line">362</span><br><span class="line">363</span><br><span class="line">364</span><br><span class="line">365</span><br><span class="line">366</span><br><span class="line">367</span><br><span class="line">368</span><br><span class="line">369</span><br><span class="line">370</span><br><span class="line">371</span><br><span class="line">372</span><br><span class="line">373</span><br><span class="line">374</span><br><span class="line">375</span><br><span class="line">376</span><br><span class="line">377</span><br><span class="line">378</span><br><span class="line">379</span><br><span class="line">380</span><br><span class="line">381</span><br><span class="line">382</span><br><span class="line">383</span><br><span class="line">384</span><br><span class="line">385</span><br><span class="line">386</span><br><span class="line">387</span><br><span class="line">388</span><br><span class="line">389</span><br><span class="line">390</span><br><span class="line">391</span><br><span class="line">392</span><br><span class="line">393</span><br><span class="line">394</span><br><span class="line">395</span><br><span class="line">396</span><br><span class="line">397</span><br><span class="line">398</span><br><span class="line">399</span><br><span class="line">400</span><br><span class="line">401</span><br><span class="line">402</span><br><span class="line">403</span><br><span class="line">404</span><br><span class="line">405</span><br><span class="line">406</span><br><span class="line">407</span><br><span class="line">408</span><br><span class="line">409</span><br><span class="line">410</span><br><span class="line">411</span><br><span class="line">412</span><br><span class="line">413</span><br><span class="line">414</span><br><span class="line">415</span><br><span class="line">416</span><br><span class="line">417</span><br><span class="line">418</span><br><span class="line">419</span><br><span class="line">420</span><br><span class="line">421</span><br><span class="line">422</span><br><span class="line">423</span><br><span class="line">424</span><br><span class="line">425</span><br><span class="line">426</span><br><span class="line">427</span><br><span class="line">428</span><br><span class="line">429</span><br><span class="line">430</span><br><span class="line">431</span><br><span class="line">432</span><br><span class="line">433</span><br><span class="line">434</span><br><span class="line">435</span><br><span class="line">436</span><br><span class="line">437</span><br><span class="line">438</span><br><span class="line">439</span><br><span class="line">440</span><br><span class="line">441</span><br><span class="line">442</span><br><span class="line">443</span><br><span class="line">444</span><br><span class="line">445</span><br><span class="line">446</span><br><span class="line">447</span><br><span class="line">448</span><br><span class="line">449</span><br><span class="line">450</span><br><span class="line">451</span><br><span class="line">452</span><br><span class="line">453</span><br><span class="line">454</span><br><span class="line">455</span><br><span class="line">456</span><br><span class="line">457</span><br><span class="line">458</span><br><span class="line">459</span><br><span class="line">460</span><br><span class="line">461</span><br><span class="line">462</span><br><span class="line">463</span><br><span class="line">464</span><br><span class="line">465</span><br><span class="line">466</span><br><span class="line">467</span><br><span class="line">468</span><br><span class="line">469</span><br><span class="line">470</span><br><span class="line">471</span><br><span class="line">472</span><br><span class="line">473</span><br><span class="line">474</span><br><span class="line">475</span><br><span class="line">476</span><br><span class="line">477</span><br><span class="line">478</span><br><span class="line">479</span><br><span class="line">480</span><br><span class="line">481</span><br><span class="line">482</span><br><span class="line">483</span><br><span class="line">484</span><br><span class="line">485</span><br><span class="line">486</span><br><span class="line">487</span><br><span class="line">488</span><br><span class="line">489</span><br><span class="line">490</span><br><span class="line">491</span><br><span class="line">492</span><br><span class="line">493</span><br><span class="line">494</span><br><span class="line">495</span><br><span class="line">496</span><br><span class="line">497</span><br><span class="line">498</span><br><span class="line">499</span><br><span class="line">500</span><br><span class="line">501</span><br><span class="line">502</span><br><span class="line">503</span><br><span class="line">504</span><br><span class="line">505</span><br><span class="line">506</span><br><span class="line">507</span><br><span class="line">508</span><br><span class="line">509</span><br><span class="line">510</span><br></pre></td><td class="code"><pre><code class="hljs c"><span class="hljs-meta">#<span class="hljs-keyword">include</span> <span class="hljs-string">&lt;STC8A.h&gt;</span></span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> uchar unsigned char</span><br><span class="hljs-meta">#<span class="hljs-keyword">define</span> uint unsigned int</span><br><br>uchar table[] = &#123;<span class="hljs-number">0xc0</span>, <span class="hljs-number">0xf9</span>, <span class="hljs-number">0xa4</span>, <span class="hljs-number">0xb0</span>, <span class="hljs-number">0x99</span>, <span class="hljs-number">0x92</span>, <span class="hljs-number">0x82</span>, <span class="hljs-number">0xf8</span>, <span class="hljs-number">0x80</span>, <span class="hljs-number">0x90</span>, <span class="hljs-number">0xbf</span>&#125;;<br>uchar select[] = &#123;<span class="hljs-number">0xfe</span>, <span class="hljs-number">0xfd</span>, <span class="hljs-number">0xfb</span>, <span class="hljs-number">0xf7</span>, <span class="hljs-number">0xef</span>, <span class="hljs-number">0xdf</span>, <span class="hljs-number">0xbf</span>, <span class="hljs-number">0x7f</span>&#125;;<br><br>sbit k1 = P3 ^ <span class="hljs-number">2</span>;<br>sbit k2 = P3 ^ <span class="hljs-number">3</span>;<br>sbit k3 = P3 ^ <span class="hljs-number">4</span>;<br>sbit k4 = P3 ^ <span class="hljs-number">5</span>;<br>sbit k5 = P4 ^ <span class="hljs-number">0</span>;<br>sbit beep = P4 ^ <span class="hljs-number">2</span>;<br><br>bit flag1, flag2, flag3, flag4, flag6, flag7;<br><span class="hljs-type">char</span> flag5;<br><br><span class="hljs-type">char</span> hour, minute, second, year, month, day, alarm_hour, alarm_minute;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">delay</span><span class="hljs-params">()</span><br>&#123;<br>    uint i = <span class="hljs-number">1000</span>;<br>    <span class="hljs-keyword">while</span> (i--)<br>        ;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">delay_us</span><span class="hljs-params">(uint us)</span><br>&#123;<br>    uint a;<br>    uchar b;<br>    <span class="hljs-keyword">for</span> (b = <span class="hljs-number">0</span>; b &lt; <span class="hljs-number">2</span>; b++)<br>        <span class="hljs-keyword">for</span> (a = <span class="hljs-number">0</span>; a &lt; us; a++)<br>            ;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">BEEP</span><span class="hljs-params">(uint us)</span><br>&#123;<br>    beep = ~beep;<br>    delay_us(us);<br>    beep = ~beep;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">init</span><span class="hljs-params">()</span><br>&#123;<br>    P0M1 = <span class="hljs-number">0x00</span>;<br>    P0M0 = <span class="hljs-number">0xff</span>;<br>    P1M1 = <span class="hljs-number">0x00</span>;<br>    P1M0 = <span class="hljs-number">0xff</span>;<br>    P2M1 = <span class="hljs-number">0x00</span>;<br>    P2M0 = <span class="hljs-number">0xff</span>;<br><br>    AUXR &amp;= <span class="hljs-number">0x7F</span>;<br>    TMOD &amp;= <span class="hljs-number">0xF0</span>;<br>    TL0 = <span class="hljs-number">0xC0</span>;<br>    TH0 = <span class="hljs-number">0x63</span>;<br>    TR0 = <span class="hljs-number">1</span>;<br>    ET0 = <span class="hljs-number">1</span>;<br>    EA = <span class="hljs-number">1</span>;<br><br>    flag5 = <span class="hljs-number">0</span>;<br><br>    hour = <span class="hljs-number">0</span>;<br>    minute = <span class="hljs-number">0</span>;<br>    second = <span class="hljs-number">0</span>;<br>    year = <span class="hljs-number">23</span>;<br>    month = <span class="hljs-number">4</span>;<br>    day = <span class="hljs-number">21</span>;<br><br>    alarm_hour = <span class="hljs-number">12</span>;<br>    alarm_minute = <span class="hljs-number">0</span>;<br>&#125;<br><br><span class="hljs-comment">// 时间显示</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">display_time</span><span class="hljs-params">()</span><br>&#123;<br>    P1 = select[<span class="hljs-number">0</span>];<br>    P0 = table[second % <span class="hljs-number">10</span>];<br>    delay();<br>    P1 = select[<span class="hljs-number">1</span>];<br>    P0 = table[second / <span class="hljs-number">10</span>];<br>    delay();<br><br>    P1 = select[<span class="hljs-number">2</span>];<br>    P0 = table[<span class="hljs-number">10</span>];<br>    delay();<br><br>    P1 = select[<span class="hljs-number">3</span>];<br>    P0 = table[minute % <span class="hljs-number">10</span>];<br>    delay();<br>    P1 = select[<span class="hljs-number">4</span>];<br>    P0 = table[minute / <span class="hljs-number">10</span>];<br>    delay();<br><br>    P1 = select[<span class="hljs-number">5</span>];<br>    P0 = table[<span class="hljs-number">10</span>];<br>    delay();<br><br>    P1 = select[<span class="hljs-number">6</span>];<br>    P0 = table[hour % <span class="hljs-number">10</span>];<br>    delay();<br>    P1 = select[<span class="hljs-number">7</span>];<br>    P0 = table[hour / <span class="hljs-number">10</span>];<br>    delay();<br>&#125;<br><br><span class="hljs-comment">// 时间设置</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">set_time</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-keyword">if</span> (k1 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag1 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag1 = <span class="hljs-number">1</span>;<br>            hour++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k1 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag1 = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (k2 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag2 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag2 = <span class="hljs-number">1</span>;<br>            hour--;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k2 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag2 = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (k3 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag3 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag3 = <span class="hljs-number">1</span>;<br>            minute++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k3 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag3 = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (k4 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag4 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag4 = <span class="hljs-number">1</span>;<br>            minute--;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k4 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag4 = <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 日期显示</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">display_date</span><span class="hljs-params">()</span><br>&#123;<br>    P1 = select[<span class="hljs-number">0</span>];<br>    P0 = table[day % <span class="hljs-number">10</span>];<br>    delay();<br>    P1 = select[<span class="hljs-number">1</span>];<br>    P0 = table[day / <span class="hljs-number">10</span>];<br>    delay();<br><br>    P1 = select[<span class="hljs-number">2</span>];<br>    P0 = table[<span class="hljs-number">10</span>];<br>    delay();<br><br>    P1 = select[<span class="hljs-number">3</span>];<br>    P0 = table[month % <span class="hljs-number">10</span>];<br>    delay();<br>    P1 = select[<span class="hljs-number">4</span>];<br>    P0 = table[month / <span class="hljs-number">10</span>];<br>    delay();<br><br>    P1 = select[<span class="hljs-number">5</span>];<br>    P0 = table[<span class="hljs-number">10</span>];<br>    delay();<br><br>    P1 = select[<span class="hljs-number">6</span>];<br>    P0 = table[year % <span class="hljs-number">10</span>];<br>    delay();<br>    P1 = select[<span class="hljs-number">7</span>];<br>    P0 = table[year / <span class="hljs-number">10</span>];<br>    delay();<br>&#125;<br><br><span class="hljs-comment">// 日期设置</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">set_date</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-keyword">if</span> (k1 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag1 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag1 = <span class="hljs-number">1</span>;<br>            month++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k1 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag1 = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (k2 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag2 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag2 = <span class="hljs-number">1</span>;<br>            month--;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k2 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag2 = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (k3 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag3 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag3 = <span class="hljs-number">1</span>;<br>            day++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k3 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag3 = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (k4 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag4 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag4 = <span class="hljs-number">1</span>;<br>            day--;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k4 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag4 = <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 闹钟显示</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">display_alarm</span><span class="hljs-params">()</span><br>&#123;<br>    P1 = select[<span class="hljs-number">0</span>];<br>    P0 = <span class="hljs-number">0x88</span>;<br>    delay();<br>    P1 = select[<span class="hljs-number">1</span>];<br>    P0 = <span class="hljs-number">0xc7</span>;<br>    delay();<br>    P1 = select[<span class="hljs-number">2</span>];<br>    P0 = <span class="hljs-number">0x88</span>;<br>    delay();<br><br>    P1 = select[<span class="hljs-number">3</span>];<br>    P0 = table[alarm_minute % <span class="hljs-number">10</span>];<br>    delay();<br>    P1 = select[<span class="hljs-number">4</span>];<br>    P0 = table[alarm_minute / <span class="hljs-number">10</span>];<br>    delay();<br><br>    P1 = select[<span class="hljs-number">5</span>];<br>    P0 = table[<span class="hljs-number">10</span>];<br>    delay();<br><br>    P1 = select[<span class="hljs-number">6</span>];<br>    P0 = table[alarm_hour % <span class="hljs-number">10</span>];<br>    delay();<br>    P1 = select[<span class="hljs-number">7</span>];<br>    P0 = table[alarm_hour / <span class="hljs-number">10</span>];<br>    delay();<br>&#125;<br><br><span class="hljs-comment">// 闹钟设置</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">set_alarm</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-keyword">if</span> (k1 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag1 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag1 = <span class="hljs-number">1</span>;<br>            alarm_hour++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k1 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag1 = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (k2 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag2 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag2 = <span class="hljs-number">1</span>;<br>            alarm_hour--;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k2 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag2 = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (k3 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag3 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag3 = <span class="hljs-number">1</span>;<br>            alarm_minute++;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k3 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag3 = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (k4 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag4 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag4 = <span class="hljs-number">1</span>;<br>            alarm_minute--;<br>        &#125;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (k4 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag4 = <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 闹钟报时功能</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">alarm</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-keyword">if</span> (alarm_hour == hour)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (alarm_minute == minute)<br>        &#123;<br>            BEEP(<span class="hljs-number">50000</span>);<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-comment">// 功能切换实现</span><br><span class="hljs-type">void</span> <span class="hljs-title function_">function</span><span class="hljs-params">()</span><br>&#123;<br>    <span class="hljs-keyword">if</span> (k5 == <span class="hljs-number">0</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag6 == <span class="hljs-number">0</span>)<br>        &#123;<br>            flag6 = <span class="hljs-number">1</span>;<br>            BEEP(<span class="hljs-number">50000</span>);<br>            <span class="hljs-keyword">switch</span> (flag5)<br>            &#123;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">0</span>:<br>                flag5 = <span class="hljs-number">1</span>;<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:<br>                flag5 = <span class="hljs-number">2</span>;<br>                <span class="hljs-keyword">break</span>;<br>            <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:<br>                flag5 = <span class="hljs-number">0</span>;<br>                <span class="hljs-keyword">break</span>;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (k5 == <span class="hljs-number">1</span>)<br>    &#123;<br>        flag6 = <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">main</span><span class="hljs-params">()</span><br>&#123;<br>    init();<br>    P2 = <span class="hljs-number">0x00</span>;<br>    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>)<br>    &#123;<br>        <span class="hljs-keyword">if</span> (flag5 == <span class="hljs-number">0</span>)<br>        &#123;<br>            <span class="hljs-comment">// 时间显示</span><br>            display_time();<br>            set_time();<br>        &#125;<br>        <span class="hljs-keyword">if</span> (flag5 == <span class="hljs-number">1</span>)<br>        &#123;<br>            <span class="hljs-comment">// 日期显示</span><br>            display_date();<br>            set_date();<br>        &#125;<br>        <span class="hljs-keyword">if</span> (flag5 == <span class="hljs-number">2</span>)<br>        &#123;<br>            <span class="hljs-comment">// 闹钟显示</span><br>            display_alarm();<br>            set_alarm();<br>        &#125;<br><br>        function();<br>        alarm();<br>    &#125;<br>&#125;<br><br><span class="hljs-type">void</span> <span class="hljs-title function_">timer0</span><span class="hljs-params">()</span> interrupt 1<br>&#123;<br>    uchar t0;<br><br>    t0++;<br><br>    <span class="hljs-keyword">if</span> (t0 == <span class="hljs-number">50</span>)<br>    &#123;<br>        t0 = <span class="hljs-number">0</span>;<br>        second++;<br>        <span class="hljs-keyword">if</span> (second &gt;= <span class="hljs-number">60</span>)<br>        &#123;<br>            second = <span class="hljs-number">0</span>;<br>            minute++;<br>            <span class="hljs-keyword">if</span> (minute &gt;= <span class="hljs-number">60</span>)<br>            &#123;<br>                minute = <span class="hljs-number">0</span>;<br>                hour++;<br>                <span class="hljs-keyword">if</span> (hour &gt;= <span class="hljs-number">24</span>)<br>                &#123;<br>                    hour = <span class="hljs-number">0</span>;<br>                    day++;<br>                    <span class="hljs-keyword">if</span> (day &gt;= <span class="hljs-number">30</span>)<br>                    &#123;<br>                        day = <span class="hljs-number">1</span>;<br>                        month++;<br>                        <span class="hljs-keyword">if</span> (month &gt; <span class="hljs-number">12</span>)<br>                        &#123;<br>                            month = <span class="hljs-number">1</span>;<br>                            year++;<br>                        &#125;<br>                    &#125;<br>                &#125;<br>            &#125;<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (hour &lt; <span class="hljs-number">0</span>)<br>    &#123;<br>        hour = <span class="hljs-number">23</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (hour &gt;= <span class="hljs-number">24</span>)<br>    &#123;<br>        hour = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (minute &lt; <span class="hljs-number">0</span>)<br>    &#123;<br>        minute = <span class="hljs-number">59</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (minute &gt;= <span class="hljs-number">60</span>)<br>    &#123;<br>        minute = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (second &lt; <span class="hljs-number">0</span>)<br>    &#123;<br>        second = <span class="hljs-number">59</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (second &gt;= <span class="hljs-number">60</span>)<br>    &#123;<br>        second = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (month &lt;= <span class="hljs-number">0</span>)<br>    &#123;<br>        month = <span class="hljs-number">12</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (month &gt;= <span class="hljs-number">13</span>)<br>    &#123;<br>        month = <span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (day &lt;= <span class="hljs-number">0</span>)<br>    &#123;<br>        day = <span class="hljs-number">31</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (day &gt; <span class="hljs-number">31</span>)<br>    &#123;<br>        day = <span class="hljs-number">1</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (alarm_hour &lt; <span class="hljs-number">0</span>)<br>    &#123;<br>        alarm_hour = <span class="hljs-number">23</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (alarm_hour &gt;= <span class="hljs-number">24</span>)<br>    &#123;<br>        alarm_hour = <span class="hljs-number">0</span>;<br>    &#125;<br><br>    <span class="hljs-keyword">if</span> (alarm_minute &lt; <span class="hljs-number">0</span>)<br>    &#123;<br>        alarm_minute = <span class="hljs-number">59</span>;<br>    &#125;<br>    <span class="hljs-keyword">if</span> (alarm_minute &gt;= <span class="hljs-number">60</span>)<br>    &#123;<br>        alarm_minute = <span class="hljs-number">0</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<hr>
+<h1 id="物联网"><a href="#物联网" class="headerlink" title="物联网"></a>物联网</h1><p>补上当时没有加进去的物联网（控制舵机+红绿灯）部分</p>
+<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br></pre></td><td class="code"><pre><code class="hljs awk"><span class="hljs-regexp">/*单片机晶振频率选用11.0592MHZ*/</span><br><span class="hljs-comment">#include &quot;stc15.h&quot;          //调用stc15w单片机头文件</span><br><span class="hljs-comment">#include &quot;intrins.h&quot;        //</span><br><span class="hljs-comment">#define uchar unsigned char //</span><br><span class="hljs-comment">#define uint  unsigned int  //</span><br><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span>IO名称定义<br>sbit PWM1  = P2 ^ <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> 舵机<span class="hljs-number">1</span>输出定义<br>sbit IR_IN = P5 ^ <span class="hljs-number">5</span>; <span class="hljs-regexp">//</span> 红外传感器输入定义  检测到物体输出低电平<br>sbit RR    = P7 ^ <span class="hljs-number">3</span>; <span class="hljs-regexp">//</span> 交通灯红灯定义      低电平点亮<br>sbit YY    = P7 ^ <span class="hljs-number">2</span>; <span class="hljs-regexp">//</span> 交通灯黄灯定义      低电平点亮<br>sbit GG    = P7 ^ <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> 交通灯绿灯定义      低电平点亮<br>sbit beep  = P4 ^ <span class="hljs-number">0</span>; <span class="hljs-regexp">//</span> 蜂鸣器定义          有源蜂鸣等于低电平发声<br><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span><span class="hljs-regexp">//</span>变量定义<br>uint Servo1PwmDat = <span class="hljs-number">750</span>; <span class="hljs-regexp">//</span> 启动单片机时舵机落杆位置，落杆 = <span class="hljs-number">750</span>,（<span class="hljs-number">500</span>-<span class="hljs-number">2500</span>）对应角度<span class="hljs-number">0</span>-<span class="hljs-number">180</span>度<br><br><span class="hljs-regexp">//</span> 延时子程<br>void DelayMs(uint ms)<br>&#123;<br>    uint i, j;<br>    <span class="hljs-keyword">for</span> (i = <span class="hljs-number">0</span>; i &lt; <span class="hljs-number">85</span>; i++)<br>        <span class="hljs-keyword">for</span> (j = <span class="hljs-number">0</span>; j &lt; ms; j++)<br>            ;<br>&#125;<br><br><span class="hljs-regexp">//</span> IO口、定时器、串口通讯波特率初始化<br>void init()<br>&#123;<br>    <span class="hljs-regexp">//</span> IO初始化<br>    P0M1 = <span class="hljs-number">0</span>x00;<br>    P0M0 = <span class="hljs-number">0</span>x00; <span class="hljs-regexp">//</span> 设置为准双向口<br>    P1M1 = <span class="hljs-number">0</span>x00;<br>    P1M0 = <span class="hljs-number">0</span>x00; <span class="hljs-regexp">//</span> 设置为准双向口<br>    P2M1 = <span class="hljs-number">0</span>x00;<br>    P2M0 = <span class="hljs-number">0</span>x00; <span class="hljs-regexp">//</span> 设置为准双向口<br>    P3M1 = <span class="hljs-number">0</span>x00;<br>    P3M0 = <span class="hljs-number">0</span>x00; <span class="hljs-regexp">//</span> 设置为准双向口<br>    P4M1 = <span class="hljs-number">0</span>x00;<br>    P4M0 = <span class="hljs-number">0</span>x00; <span class="hljs-regexp">//</span> 设置为准双向口<br>    P5M1 = <span class="hljs-number">0</span>x00;<br>    P5M0 = <span class="hljs-number">0</span>x00; <span class="hljs-regexp">//</span> 设置为准双向口<br><br>    <span class="hljs-regexp">//</span> 舵机使用定时器T0初始<br>    TMOD &amp;= <span class="hljs-number">0</span>xF0; <span class="hljs-regexp">//</span> 设置定时器模式<br>    TMOD |= <span class="hljs-number">0</span>x01; <span class="hljs-regexp">//</span> 设置定时器模式<br>    TL0 = <span class="hljs-number">0</span>x00;   <span class="hljs-regexp">//</span> 设置定时初值<br>    TH0 = <span class="hljs-number">0</span>x00;   <span class="hljs-regexp">//</span> 设置定时初值<br>    TF0 = <span class="hljs-number">0</span>;      <span class="hljs-regexp">//</span> 清除TF0标志<br>    TR0 = <span class="hljs-number">1</span>;      <span class="hljs-regexp">//</span> 定时器<span class="hljs-number">0</span>开始计时<br>    ET0 = <span class="hljs-number">1</span>;      <span class="hljs-regexp">//</span> 开定时器<span class="hljs-number">0</span>中断<br><br>    <span class="hljs-regexp">//</span> 定时器T1   <span class="hljs-number">10</span>毫秒@<span class="hljs-number">11.0592</span>MHz<br>    AUXR &amp;= <span class="hljs-number">0</span>x7F; <span class="hljs-regexp">//</span> 定时器时钟<span class="hljs-number">12</span>T模式<br>    TMOD &amp;= <span class="hljs-number">0</span>xF0; <span class="hljs-regexp">//</span> 设置定时器模式<br>    TL1 = <span class="hljs-number">0</span>x00;   <span class="hljs-regexp">//</span> 设置定时初始值<br>    TH1 = <span class="hljs-number">0</span>xDC;   <span class="hljs-regexp">//</span> 设置定时初始值<br>    ET1 = <span class="hljs-number">1</span>;      <span class="hljs-regexp">//</span> 允许定时器T1产生中断<br>    TR1 = <span class="hljs-number">1</span>;      <span class="hljs-regexp">//</span> 定时器<span class="hljs-number">1</span>开始计时<br><br>    <span class="hljs-regexp">//</span> 定时器T2 串口通讯设置波特率<span class="hljs-number">9600</span>bps@<span class="hljs-number">11.0592</span>MHz<br>    <span class="hljs-regexp">/* SCON = 0x50;                       /</span>/<span class="hljs-number">8</span>位数据,可变波特率<br>     AUXR |= <span class="hljs-number">0</span>x01;                     <span class="hljs-regexp">//</span>串口<span class="hljs-number">1</span>选择定时器<span class="hljs-number">2</span>为波特率发生器<br>     AUXR &amp;= <span class="hljs-number">0</span>xFB;                     <span class="hljs-regexp">//</span>定时器时钟<span class="hljs-number">12</span>T模式<br>     T2L = <span class="hljs-number">0</span>xE8;                       <span class="hljs-regexp">//</span>设置定时初始值<br>     T2H = <span class="hljs-number">0</span>xFF;     	               <span class="hljs-regexp">//</span>设置定时初始值<br>     AUXR |= <span class="hljs-number">0</span>x10;                     <span class="hljs-regexp">//</span>定时器<span class="hljs-number">2</span>开始计时*/<br>&#125;<br><br><span class="hljs-regexp">//</span> 红绿灯一次循环<br>void TrafficLight()<br>&#123;<br>    int a = <span class="hljs-number">5</span>;<br><br>    GG = <span class="hljs-number">0</span>;<br>    YY = <span class="hljs-number">1</span>;<br>    RR = <span class="hljs-number">1</span>;<br><br>    GG = <span class="hljs-number">0</span>; <span class="hljs-regexp">//</span> 绿灯亮<br>    DelayMs(<span class="hljs-number">50000</span>);<br>    GG = <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> 绿灯灭<br><br>    <span class="hljs-regexp">//</span> 黄灯闪烁<span class="hljs-number">5</span>次<br>    <span class="hljs-keyword">while</span> (a-- &gt; <span class="hljs-number">0</span>) &#123;<br>        YY   = <span class="hljs-number">0</span>; <span class="hljs-regexp">//</span> 黄灯亮<br>        beep = <span class="hljs-number">0</span>;<br>        DelayMs(<span class="hljs-number">10000</span>);<br>        beep = <span class="hljs-number">1</span>;<br>        YY   = <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> 黄灯灭<br>        DelayMs(<span class="hljs-number">10000</span>);<br>    &#125;<br><br>    RR = <span class="hljs-number">0</span>; <span class="hljs-regexp">//</span> 红灯亮<br>    DelayMs(<span class="hljs-number">30000</span>);<br>    RR = <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> 红灯灭<br><br>    <span class="hljs-regexp">//</span> 黄灯闪烁<span class="hljs-number">5</span>次<br>    <span class="hljs-keyword">while</span> (a-- &gt; <span class="hljs-number">0</span>) &#123;<br>        YY   = <span class="hljs-number">0</span>; <span class="hljs-regexp">//</span> 黄灯亮<br>        beep = <span class="hljs-number">0</span>;<br>        DelayMs(<span class="hljs-number">10000</span>);<br>        beep = <span class="hljs-number">1</span>;<br>        YY   = <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> 黄灯灭<br>        DelayMs(<span class="hljs-number">10000</span>);<br>    &#125;<br>&#125;<br><br><span class="hljs-regexp">//</span> 舵机使用定时器<span class="hljs-number">0</span>计数器赋值产生定时中断<br>void Timer0(uint pwm) <span class="hljs-regexp">//</span> <span class="hljs-number">11.0592</span>Mhz晶振，<span class="hljs-number">12</span>分频，所以计数器每递增一个数就是接近<span class="hljs-number">1</span>微秒，<br>&#123;<br>    uint value;<br>    value = <span class="hljs-number">65535</span> - pwm;<br>    TR0   = <span class="hljs-number">0</span>;          <span class="hljs-regexp">//</span> 关闭定时器T0<br>    TL0   = value;      <span class="hljs-regexp">//</span> <span class="hljs-number">16</span>位数据给<span class="hljs-number">8</span>位数据赋值默认将<span class="hljs-number">16</span>位数据的低八位直接赋给八位数据<br>    TH0   = value &gt;&gt; <span class="hljs-number">8</span>; <span class="hljs-regexp">//</span> 将<span class="hljs-number">16</span>位数据右移<span class="hljs-number">8</span>位，也就是将高<span class="hljs-number">8</span>位移到低八位，再赋值给<span class="hljs-number">8</span>位数据<br>    TR0   = <span class="hljs-number">1</span>;          <span class="hljs-regexp">//</span> 启动定时器T0<br>&#125;<br><br><span class="hljs-regexp">//</span> 主程序<br>void main()<br>&#123;<br>    ES = <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> 开串口中断<br>    EA = <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> 打开总中断<br>    init(); <span class="hljs-regexp">//</span> 调用初始化程序<br>    <span class="hljs-keyword">while</span> (<span class="hljs-number">1</span>) &#123;<br>        <span class="hljs-regexp">//</span> TrafficLight(); <span class="hljs-regexp">//</span> 调用一次红绿灯循环<br><br>        <span class="hljs-regexp">//</span> 当红外传感器检测到有物体时，舵机转动到指定角度<br>        <span class="hljs-keyword">if</span> (IR_IN == <span class="hljs-number">0</span>) &#123;<br>            Servo1PwmDat = <span class="hljs-number">1500</span>; <span class="hljs-regexp">//</span> 舵机转动到指定角度<br>            DelayMs(<span class="hljs-number">50000</span>);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            Servo1PwmDat = <span class="hljs-number">750</span>;<br>        &#125;<br>    &#125;<br>&#125;<br><br><span class="hljs-regexp">//</span> 定时器T0中断处理<br>void Timer0_isr() interrupt <span class="hljs-number">1</span><br>&#123;<br>    static uint c = <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> 静态变量：每次调用函数时保持上一次所赋的值<br>    switch (c) &#123;<br>        case <span class="hljs-number">1</span>:<br>            PWM1 = <span class="hljs-number">1</span>; <span class="hljs-regexp">//</span> PWM1控制舵机脚高电平输出<br>            Timer0(Servo1PwmDat);<br>            <span class="hljs-keyword">break</span>; <span class="hljs-regexp">//</span> 给定时器<span class="hljs-number">0</span>赋值，计数Pwm1Dat个脉冲后产生中断，下次中断会进入下一个case语句<br><br>        case <span class="hljs-number">2</span>:<br>            PWM1 = <span class="hljs-number">0</span>; <span class="hljs-regexp">//</span> PWM控制舵机脚低电平<br>            Timer0(<span class="hljs-number">20000</span> - Servo1PwmDat);<br>            c = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">break</span>;<br>            <span class="hljs-regexp">//</span> 高脉冲结束后剩下的时间(<span class="hljs-number">20000</span>-Pwm1Dat)全是低电平了，Pwm1Dat + (<span class="hljs-number">20000</span>-Pwm1Dat) = <span class="hljs-number">20000</span>个脉冲正好为一个周期<span class="hljs-number">20</span>毫秒<br>    &#125;<br>    c++;<br>&#125;<br><br><span class="hljs-regexp">//</span> 定时器T1中断处理，每<span class="hljs-number">10</span>ms进入一次<br>void Timer1_isr() interrupt <span class="hljs-number">3</span><br>&#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+<section class="footnotes"><div class="footnote-list"><ol><li><span id="fn:1" class="footnote-text"><span>代码仅供参考，不保证正确性，如有错误请指出，同时我没有添加注释，请耐心阅读代码学习。
+<a href="#fnref:1" rev="footnote" class="footnote-backref"> ↩</a></span></span></li></ol></div></section>
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%8D%95%E7%89%87%E6%9C%BA/" class="category-chain-item">单片机</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%8D%95%E7%89%87%E6%9C%BA/51%E5%8D%95%E7%89%87%E6%9C%BA/" class="category-chain-item">51单片机</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%8D%95%E7%89%87%E6%9C%BA/" class="print-no-link">#单片机</a>
+      
+        <a href="/tags/51%E5%8D%95%E7%89%87%E6%9C%BA/" class="print-no-link">#51单片机</a>
+      
+        <a href="/tags/%E7%94%B5%E5%AD%90%E5%AE%9E%E4%B9%A0/" class="print-no-link">#电子实习</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>西北工业大学电子实习单片机程序设计-流水灯&amp;电子表</div>
+      <div>https://saymd-moe.github.io/2023/04/西北工业大学电子实习单片机程序设计/</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>saYmd</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2023年4月25日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2023/12/%E7%BB%9F%E8%AE%A1%E5%8A%9B%E5%AD%A6%E7%AC%94%E8%AE%B0/" title="统计力学笔记">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">统计力学笔记</span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2022/10/Powershell%E5%90%AF%E5%8A%A8%E6%97%B6%E6%A3%80%E6%B5%8B%E7%B3%BB%E7%BB%9F%E4%BB%A3%E7%90%86%E6%83%85%E5%86%B5%E5%B9%B6%E8%87%AA%E5%8A%A8%E6%B7%BB%E5%8A%A0%E7%8E%AF%E5%A2%83%E5%8F%98%E9%87%8F/" title="Powershell启动时检测系统代理情况并自动添加环境变量">
+                        <span class="hidden-mobile">Powershell启动时检测系统代理情况并自动添加环境变量</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+  
+  
+    <article id="comments" lazyload>
+      
+  <div id="valine"></div>
+  <script type="text/javascript">
+    Fluid.utils.loadComments('#valine', function() {
+      Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/valine@1/dist/Valine.min.js', function() {
+        var options = Object.assign(
+          {"appId":"FntMYXBDBx2O2o9EbKqonQTi-gzGzoHsz","appKey":"efhvvjP0I7vosmdmV2JsjR9f","path":"window.location.pathname","placeholder":"来进行友好的交♂流吧(^^","avatar":"retro","meta":["nick","mail","link"],"requiredFields":["nick"],"pageSize":10,"lang":"zh-CN","highlight":true,"recordIP":true,"serverURLs":"https://fntmyxbd.lc-cn-n1-shared.com","emojiCDN":null,"emojiMaps":null,"enableQQ":true,"visitor":"ture"},
+          {
+            el: "#valine",
+            path: window.location.pathname
+          }
+        )
+        new Valine(options);
+        Fluid.utils.waitElementVisible('#valine .vcontent', () => {
+          var imgSelector = '#valine .vcontent img:not(.vemoji)';
+          Fluid.plugins.imageCaption(imgSelector);
+          Fluid.plugins.fancyBox(imgSelector);
+        })
+      });
+    });
+  </script>
+  <noscript>Please enable JavaScript to view the comments</noscript>
+
+
+    </article>
+  
+
+
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  <script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/mermaid@8/dist/mermaid.min.js', function() {
+    mermaid.initialize({"theme":"default"});
+
+    Fluid.utils.listenDOMLoaded(function() {
+      Fluid.events.registerRefreshCallback(function() {
+        if ('mermaid' in window) {
+          mermaid.init();
+        }
+      });
+    });
+  });
+</script>
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+    <div class="footer-content">
+       <span>Powered by</span> <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a>
+    </div>
+  
+  
+    <div class="statistics">
+  
+  
+
+  
+    
+      <span id="leancloud-site-pv-container" style="display: none">
+        总访问量 
+        <span id="leancloud-site-pv"></span>
+         次
+      </span>
+    
+    
+      <span id="leancloud-site-uv-container" style="display: none">
+        总访客数 
+        <span id="leancloud-site-uv"></span>
+         人
+      </span>
+    
+    
+
+  
+
+</div>
+
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/tocbot@4/dist/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    window.tocbot.init(Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc));
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://cdn.jsdelivr.net/npm/clipboard@2/dist/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/anchor-js@4/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3/dist/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/leancloud.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
